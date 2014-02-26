@@ -92,8 +92,9 @@
         "gesturechange" : function (e) {
             globe.gesture = true;
             var delta = (e.scale - globe.scale) * 1000;
-            globe.scale = e.scale;
-            zoom.publish(delta);
+            zoom.publish(delta, function () {
+                globe.scale = e.scale;
+            });
         },
 
         "gestureend" : function (e) {
@@ -129,7 +130,7 @@
             e.preventDefault();
         },
 
-        "publish" : throttle(function (z) {
+        "publish" : throttle(function (z, callback) {
             p.publish({
                 "channel"   : "webgl-visualization-control",
                 "message"   : {
@@ -137,6 +138,10 @@
                     "z"         : z
                 }
             });
+
+            if (callback) {
+                callback();
+            }
         }, THROTTLE_TIME)
     };
 
