@@ -1,0 +1,80 @@
+/* FontAwesome styles */
+@font-face {
+  font-family: 'FontAwesome';
+  src: url('assets/fontawesome-webfont.eot?v=4.0.3');
+  src: url('assets/fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'), url('assets/fontawesome-webfont.woff?v=4.0.3') format('woff'), url('assets/fontawesome-webfont.ttf?v=4.0.3') format('truetype'), url('assets/fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.fa {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.fa-2x {
+  font-size: 2em;
+}
+.fa-search-plus:before {
+  content: "\f00e";
+}
+.fa-search-minus:before {
+  content: "\f010";
+}
+
+
+/* App styles */
+
+body {
+    margin: 0;
+}
+
+.sized {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#content {
+    background-image: url('assets/globe.png');
+    background-color: #000;
+}
+
+#overlay {
+    background-image: url('assets/arrows.png');
+
+    -webkit-animation-name: fader;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+
+@-webkit-keyframes fader {
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 1;
+    }
+}
+
+#zoom {
+    color: #fff;
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}
+
+#zoom_in, #zoom_out {
+    margin: 5px;
+}
