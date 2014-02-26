@@ -1,0 +1,8 @@
+## OSX junk
+.DS_Store
+.Trashes
+._*
+
+## Temporary files
+*.tmp
+*~
