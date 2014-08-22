@@ -8,6 +8,28 @@
     var IDLE_TIME = 2000;
     var THROTTLE_TIME = 100;                // Because I do my own throttling!
 
+    // Subscribe to a channel to announce my presence
+    function be_here() {
+        p.subscribe({
+            "channel"   : "webgl-visualization",
+            "callback"  : function () {},
+            "heartbeat" : 30
+        });
+    }
+
+    // Unsubscribe when leaving the page
+    function go_away() {
+        p.unsubscribe({
+            "channel"   : "webgl-visualization"
+        });
+    }
+
+    be_here();
+    window.addEventListener("pageshow", be_here);
+    window.addEventListener("pagehide", go_away);
+    window.addEventListener("beforeunload", go_away);
+    window.addEventListener("unload", go_away);
+
     function throttle(fn, delay) {
         var interval = 0;
         var last = 0;
