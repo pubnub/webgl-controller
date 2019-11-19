@@ -2,7 +2,7 @@
     var p = PUBNUB.init({
         "publish_key"           : "pub-c-5f15e90d-f3f8-4daa-a223-1ea114d2fb28",
         "subscribe_key"         : "sub-c-4f71d6ee-1c63-11e4-a1db-02ee2ddab7fe",
-        "no_wait_for_pending"   : 1         // Do not throttle in SDK
+        "no_wait_for_pending"   : 1,         // Do not throttle in SDK
         "ssl"                   : true
     });
 
